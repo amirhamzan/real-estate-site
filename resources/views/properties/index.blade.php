@@ -86,11 +86,9 @@
                                             <tr>
                                                 <td>
                                                     <div class="d-flex px-2 py-1">
-                                                        {{-- <div class="d-flex align-items-center">
-                                                            <img src="../assets/img/team-2.jpg"
-                                                                class="avatar avatar-sm rounded-circle me-2"
-                                                                alt="user1">
-                                                        </div> --}}
+                                                        <div class="d-flex align-items-center">
+                                                            <span class="avatar avatar-sm text-primary rounded-circle me-2"><i class="fa-solid fa-building"></i></span>
+                                                        </div>
                                                         <div class="d-flex flex-column justify-content-center ms-1">
                                                             <h6 class="mb-0 text-sm font-weight-semibold">
                                                                 {{ $property->name }}
