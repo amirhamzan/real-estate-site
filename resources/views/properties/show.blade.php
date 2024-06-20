@@ -46,7 +46,7 @@
                                     <span class="text-secondary">Land Area (m<sup>2):</span> &nbsp; {{ $property->land_area }}
                                 </li>
                                 <li class="list-group-item border-0 ps-0 text-dark font-weight-semibold pb-1 text-sm">
-                                    <span class="text-secondary">Price:</span> &nbsp; $ {{ number_format( $property->price, 2, '.', ',') }}
+                                    <span class="text-secondary">Price ($):</span> &nbsp; {{ number_format( $property->price, 2, '.', ',') }}
                                 </li>
                                 <li class="list-group-item border-0 ps-0 text-dark font-weight-semibold pb-1 text-sm">
                                     <span class="text-secondary">Status:</span> &nbsp; <span class="badge badge-sm border border-success text-success bg-success">Sold</span>
