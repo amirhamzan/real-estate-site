@@ -22,12 +22,12 @@ use App\Http\Controllers\TransactionController;
 */
 
 Route::get('/', function () {
-    return redirect('/dashboard');
+    return redirect()->route('properties.index');
 })->middleware('auth');
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard')->middleware('auth');
+    return redirect()->route('properties.index');
+})->middleware('auth');
 
 Route::get('/tables', function () {
     return view('tables');
@@ -103,6 +103,7 @@ Route::middleware(['auth',])->group(function () {
         Route::controller(TransactionController::class)->group(function () {
             Route::get('/', 'index')->name('transactions.index')->middleware('can:transactions-index');
             Route::get('/{transaction}', 'show')->name('transactions.show')->middleware('can:transactions-show');
+            Route::get('/create', 'create')->name('transactions.create')->middleware('can:transactions-create');
         });
     });
 });
