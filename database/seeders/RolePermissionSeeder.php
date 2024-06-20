@@ -12,41 +12,41 @@ use Illuminate\Support\Facades\DB;
 
 class RolePermissionSeeder extends Seeder
 {
-    private $property = [
-        'property' => [
-            'property-index',
-            'property-create',
-            'property-store',
-            'property-show',
-            'property-edit',
-            'property-update',
-            'property-destroy',
+    private $properties = [
+        'properties' => [
+            'properties-index',
+            'properties-create',
+            'properties-store',
+            'properties-show',
+            'properties-edit',
+            'properties-update',
+            'properties-destroy',
         ],
     ];
 
 
-    private $transaction = [
-        'transaction' => [
-            'transaction-index',
-            'transaction-create',
-            'transaction-store',
-            'transaction-show',
-            'transaction-edit',
-            'transaction-update',
-            'transaction-destroy',
+    private $transactions = [
+        'transactions' => [
+            'transactions-index',
+            'transactions-create',
+            'transactions-store',
+            'transactions-show',
+            'transactions-edit',
+            'transactions-update',
+            'transactions-destroy',
         ],
 
     ];
 
-    private $transaction_user = [
-        'transaction-user' => [
-            'transaction-user-index',
-            'transaction-user-create',
-            'transaction-user-store',
-            'transaction-user-show',
-            'transaction-user-edit',
-            'transaction-user-update',
-            'transaction-user-destroy',
+    private $transaction_users = [
+        'transaction-users' => [
+            'transaction-users-index',
+            'transaction-users-create',
+            'transaction-users-store',
+            'transaction-users-show',
+            'transaction-users-edit',
+            'transaction-users-update',
+            'transaction-users-destroy',
         ],
 
     ];
@@ -66,9 +66,9 @@ class RolePermissionSeeder extends Seeder
         DB::table('model_has_roles')->delete();
 
         $seeds = [
-            $this->property,
-            $this->transaction,
-            $this->transaction_user,
+            $this->properties,
+            $this->transactions,
+            $this->transaction_users,
         ];
 
         foreach ($seeds as $categoryArr) {
@@ -89,16 +89,16 @@ class RolePermissionSeeder extends Seeder
         $role_super_admin = Role::create(['name' => 'super-admin']);
         $super_admin = User::where('email', 'superadmin@example.com')->first();
         $super_admin->assignRole($role_super_admin);
-        
+
 
         $role_salesperson = Role::create(['name' => 'salesperson']);
         $role_salesperson->syncPermissions([
-            'property-index',
-            'property-show',
-            'transaction-index',
-            'transaction-show',
-            'transaction-user-index',
-            'transaction-user-show',
+            'properties-index',
+            'properties-show',
+            'transactions-index',
+            'transactions-show',
+            'transaction-users-index',
+            'transaction-users-show',
         ]);
 
         $users = User::where('email', '!=', 'superadmin@example.com')->get();
