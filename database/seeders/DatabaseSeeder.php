@@ -19,17 +19,17 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::factory()->create([
-            'name' => 'Harry',
-            'email' => 'harry@example.com',
+            'name' => 'Ernie',
+            'email' => 'ernie@example.com',
             'password' => Hash::make('secret'),
-            'about' => "Hi, I am Harry.",
+            'about' => "Hi, I am Ernie.",
         ]);
 
         User::factory()->create([
-            'name' => 'Kane',
-            'email' => 'kane@example.com',
+            'name' => 'Aliza',
+            'email' => 'aliza@example.com',
             'password' => Hash::make('secret'),
-            'about' => "Hi, I am Kane.",
+            'about' => "Hi, I am Aliza.",
         ]);
     }
 }
