@@ -13,4 +13,9 @@ class Transaction extends Model
     {
         return $this->belongsTo(Property::class);
     }
+
+    public function transactionUsers()
+    {
+        return $this->hasMany(TransactionUser::class);
+    }
 }

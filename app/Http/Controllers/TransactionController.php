@@ -38,7 +38,12 @@ class TransactionController extends Controller
      */
     public function show(Transaction $transaction)
     {
-        //
+        $transaction->load('property', 'transactionUsers.user',);
+
+        $total_percentage = $transaction->transactionUsers->sum('percentage');
+        $total_commission = $transaction->transactionUsers->sum('commission');
+
+        return view('transactions.show', compact('transaction', 'total_percentage', 'total_commission'));
     }
 
     /**
@@ -46,7 +51,6 @@ class TransactionController extends Controller
      */
     public function edit(Transaction $transaction)
     {
-        //
     }
 
     /**
