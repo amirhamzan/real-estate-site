@@ -12,7 +12,9 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        //
+        $transactions = Transaction::with('property')->paginate(15);
+
+        return view('transactions.index', compact('transactions'));
     }
 
     /**

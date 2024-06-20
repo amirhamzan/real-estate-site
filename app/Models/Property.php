@@ -13,4 +13,9 @@ class Property extends Model
     {
         return $this->belongsTo(PropertyType::class);
     }
+
+    public function transaction()
+    {
+        return $this->hasOne(Transaction::class);
+    }
 }

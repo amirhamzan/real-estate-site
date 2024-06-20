@@ -8,6 +8,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\PropertyController;
+use App\Http\Controllers\TransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -95,6 +96,13 @@ Route::middleware(['auth',])->group(function () {
         Route::controller(PropertyController::class)->group(function () {
             Route::get('/', 'index')->name('properties.index')->middleware('can:properties-index');
             Route::get('/{property}', 'show')->name('properties.show')->middleware('can:properties-show');
+        });
+    });
+
+    Route::prefix('transactions')->group(function () {
+        Route::controller(TransactionController::class)->group(function () {
+            Route::get('/', 'index')->name('transactions.index')->middleware('can:transactions-index');
+            Route::get('/{transaction}', 'show')->name('transactions.show')->middleware('can:transactions-show');
         });
     });
 });
