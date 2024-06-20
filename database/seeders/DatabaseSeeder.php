@@ -37,6 +37,7 @@ class DatabaseSeeder extends Seeder
             PropertyTypeSeeder::class,
             PropertySeeder::class,
             TransactionSeeder::class,
+            TransactionUserSeeder::class,
         ]);
     }
 }
