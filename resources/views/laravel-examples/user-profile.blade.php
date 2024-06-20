@@ -16,33 +16,12 @@
                                 class="top-0 rounded-2 position-absolute start-0 w-100 h-100">
 
                             <div class="row z-index-2 justify-content-center align-items-center">
-                                <div class="col-sm-auto col-4">
-                                    <div class="avatar avatar-xl position-relative">
-                                        <img src="../assets/img/team-2.jpg" alt="bruce"
-                                            class="w-100 h-100 object-fit-cover border-radius-lg shadow-sm"
-                                            id="preview">
-                                    </div>
-                                </div>
                                 <div class="col-sm-auto col-8 my-auto">
                                     <div class="h-100">
                                         <h5 class="mb-1 font-weight-bolder">
                                             {{ auth()->user()->name }}
                                         </h5>
-                                        <p class="mb-0 font-weight-bold text-sm">
-                                            CEO / Co-Founder
-                                        </p>
                                     </div>
-                                </div>
-                                <div class="col-sm-auto ms-sm-auto mt-sm-0 mt-3 d-flex">
-                                    <div class="form-check form-switch ms-2">
-                                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault23"
-                                            checked onchange="visible()">
-                                    </div>
-                                    <label class="text-white form-check-label mb-0">
-                                        <small id="profileVisibility">
-                                            Switch to invisible
-                                        </small>
-                                    </label>
                                 </div>
                             </div>
                         </div>
