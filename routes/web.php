@@ -94,6 +94,7 @@ Route::middleware(['auth',])->group(function () {
     Route::prefix('properties')->group(function () {
         Route::controller(PropertyController::class)->group(function () {
             Route::get('/', 'index')->name('properties.index')->middleware('can:properties-index');
+            Route::get('/{property}', 'show')->name('properties.show')->middleware('can:properties-show');
         });
     });
 });
