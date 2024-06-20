@@ -18,7 +18,7 @@
                                     <p class="mb-0">Welcome back!</p>
                                     <p class="mb-0">Create a new acount<br></p>
                                     <p class="mb-0">OR Sign in with these credentials:</p>
-                                    <p class="mb-0">Email: <b>admin@corporateui.com</b></p>
+                                    <p class="mb-0">Email: <b>superadmin@example.com</b></p>
                                     <p class="mb-0">Password: <b>secret</b></p>
                                 </div>
                                 <div class="text-center">
@@ -40,7 +40,7 @@
                                         <div class="mb-3">
                                             <input type="email" id="email" name="email" class="form-control"
                                                 placeholder="Enter your email address"
-                                                value="{{ old('email') ? old('email') : 'admin@corporateui.com' }}"
+                                                value="{{ old('email') ? old('email') : 'superadmin@example.com' }}"
                                                 aria-label="Email" aria-describedby="email-addon">
                                         </div>
                                         <label>Password</label>
