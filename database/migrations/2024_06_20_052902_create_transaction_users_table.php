@@ -17,6 +17,8 @@ return new class extends Migration
             $table->foreign('transaction_id')->references('id')->on('transactions')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->nullable();
+            $table->decimal('percentage', 4, 2)->nullable();
+            $table->decimal('commission', 12, 2)->nullable();
             $table->timestamps();
         });
     }

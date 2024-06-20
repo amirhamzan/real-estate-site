@@ -18,7 +18,7 @@ class TransactionSeeder extends Seeder
         $transactions = [
             [
                 'property_id' => 1,
-                'price' => 1093000.50,
+                'price' => 1093000,
                 'created_at' => $current_date_time,
                 'updated_at' => $current_date_time,
             ],

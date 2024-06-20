@@ -20,12 +20,16 @@ class TransactionUserSeeder extends Seeder
             [
                 'transaction_id' => 1,
                 'user_id' => 2,
+                'percentage' => 5,
+                'commission' => 54650,
                 'created_at' => $current_date_time,
                 'updated_at' => $current_date_time,
             ],
             [
                 'transaction_id' => 1,
                 'user_id' => 3,
+                'percentage' => 3,
+                'commission' => 32790,
                 'created_at' => $current_date_time,
                 'updated_at' => $current_date_time,
             ],
