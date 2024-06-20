@@ -71,10 +71,10 @@
                                                 Type</th>
                                             <th
                                                 class="text-center text-secondary text-xs font-weight-semibold opacity-7">
-                                                Floor Area</th>
+                                                Floor Area <span class="text-lowercase">(m<sup>2)</span></th>
                                             <th
                                                 class="text-center text-secondary text-xs font-weight-semibold opacity-7">
-                                                Land Area</th>
+                                                Land Area <span class="text-lowercase">(m<sup>2)</span></th>
                                             <th
                                                 class="text-center text-secondary text-xs font-weight-semibold opacity-7">
                                                 Status</th>
@@ -135,13 +135,7 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="border-top py-3 px-3 d-flex align-items-center">
-                                <p class="font-weight-semibold mb-0 text-dark text-sm">Page 1 of 10</p>
-                                <div class="ms-auto">
-                                    <button class="btn btn-sm btn-white mb-0">Previous</button>
-                                    <button class="btn btn-sm btn-white mb-0">Next</button>
-                                </div>
-                            </div>
+                            {{ $properties->links() }}
                         </div>
                     </div>
                 </div>
