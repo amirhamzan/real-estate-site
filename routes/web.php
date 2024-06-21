@@ -101,9 +101,10 @@ Route::middleware(['auth',])->group(function () {
 
     Route::prefix('transactions')->group(function () {
         Route::controller(TransactionController::class)->group(function () {
+            Route::get('/create', 'create')->name('transactions.create')->middleware('can:transactions-create');
+            Route::post('/', 'store')->name('transactions.store')->middleware('can:transactions-store');
             Route::get('/', 'index')->name('transactions.index')->middleware('can:transactions-index');
             Route::get('/{transaction}', 'show')->name('transactions.show')->middleware('can:transactions-show');
-            Route::get('/create', 'create')->name('transactions.create')->middleware('can:transactions-create');
         });
     });
 });

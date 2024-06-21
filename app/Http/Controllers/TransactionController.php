@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Transaction\StoreTransactionRequest;
+use App\Models\Property;
 use App\Models\Transaction;
+use App\Models\TransactionUser;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class TransactionController extends Controller
@@ -22,15 +26,42 @@ class TransactionController extends Controller
      */
     public function create()
     {
-        //
+        $properties = Property::doesntHave('transaction')->get();
+
+        $users = User::where('id', '!=', 1)->get();
+
+        return view('transactions.create', compact('properties', 'users'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreTransactionRequest $request)
     {
-        //
+        $validate = $request->validated();
+
+        $transaction = Transaction::create([
+            'property_id' => $validate['property_id'],
+            'price' => $validate['price']
+        ]);
+
+        $transaction_users_arr = [];
+
+        foreach ($validate['commissions'] as $index => $commission) {
+
+            $trans_user_to_be_addedd = [
+                "transaction_id" => $transaction->id,
+                "user_id" => $index,
+                "percentage" => $commission,
+                "commission" => $commission / 100 * $transaction->price,
+            ];
+
+            array_push($transaction_users_arr, $trans_user_to_be_addedd);
+        }
+
+        TransactionUser::insert($transaction_users_arr);
+
+        return redirect()->route('transactions.index')->with('success', "Transaction successfully added");
     }
 
     /**

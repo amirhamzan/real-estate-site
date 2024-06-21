@@ -9,6 +9,11 @@ class Transaction extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'property_id',
+        'price',
+    ];
+
     public function property()
     {
         return $this->belongsTo(Property::class);
