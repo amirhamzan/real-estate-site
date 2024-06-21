@@ -48,8 +48,17 @@
                                 <li class="list-group-item border-0 ps-0 text-dark font-weight-semibold pb-1 text-sm">
                                     <span class="text-secondary">Price ($):</span> &nbsp; {{ number_format( $property->price, 2, '.', ',') }}
                                 </li>
+                                @php
+                                if($property->transaction != null) {
+                                $badge_style = 'border-success text-success bg-success';
+                                $badge_text = 'Sold';
+                                } else {
+                                $badge_style = 'border-danger text-danger bg-danger';
+                                $badge_text = 'N/A';
+                                }
+                                @endphp
                                 <li class="list-group-item border-0 ps-0 text-dark font-weight-semibold pb-1 text-sm">
-                                    <span class="text-secondary">Status:</span> &nbsp; <span class="badge badge-sm border border-success text-success bg-success">Sold</span>
+                                    <span class="text-secondary">Status:</span> &nbsp; <span class="badge badge-sm border {{ $badge_style }}">{{ $badge_text }}</span>
                                 </li>
 
                             </ul>

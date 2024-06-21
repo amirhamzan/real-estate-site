@@ -112,8 +112,17 @@
                                                         class="text-secondary text-sm font-weight-normal">{{ $property->land_area }}</span>
                                                 </td>
                                                 <td class="align-middle text-center text-sm">
+                                                    @php
+                                                    if($property->transaction != null) {
+                                                        $badge_style = 'border-success text-success bg-success';
+                                                        $badge_text = 'Sold';
+                                                    } else {
+                                                        $badge_style = 'border-danger text-danger bg-danger';
+                                                        $badge_text = 'N/A';
+                                                    }
+                                                    @endphp
                                                     <span
-                                                        class="badge badge-sm border border-success text-success bg-success">Sold</span>
+                                                        class="badge badge-sm border {{ $badge_style }}">{{ $badge_text }}</span>
                                                 </td>
                                                 <td class="align-middle">
                                                     <a href="{{ route('properties.show', $property->id) }}"
