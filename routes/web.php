@@ -9,6 +9,7 @@ use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\TransactionUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -105,6 +106,12 @@ Route::middleware(['auth',])->group(function () {
             Route::post('/', 'store')->name('transactions.store')->middleware('can:transactions-store');
             Route::get('/', 'index')->name('transactions.index')->middleware('can:transactions-index');
             Route::get('/{transaction}', 'show')->name('transactions.show')->middleware('can:transactions-show');
+        });
+    });
+
+    Route::prefix('transaction-users')->group(function () {
+        Route::controller(TransactionUserController::class)->group(function () {
+            Route::get('/download-report/{transaction_user}', 'downloadReport')->name('transaction.users.download.report');
         });
     });
 });

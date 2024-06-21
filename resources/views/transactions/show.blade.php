@@ -79,7 +79,7 @@
                                                     <span class="text-success text-lg font-weight-bolder">{{ number_format( $transaction->commission, 2, '.', ',') }}</span>
                                                 </td>
                                                 <td class="align-middle">
-                                                    <a class="text-secondary font-weight-bold" data-bs-toggle="tooltip" data-bs-title="Download report">
+                                                    <a href="{{ route('transaction.users.download.report', $transaction->id) }}" class="text-secondary font-weight-bold" data-bs-toggle="tooltip" data-bs-title="Download report">
                                                         <i class="fa-solid fa-download" aria-hidden="true"></i>
                                                     </a>
                                                 </td>
