@@ -61,7 +61,7 @@ class TransactionController extends Controller
 
         TransactionUser::insert($transaction_users_arr);
 
-        return redirect()->route('transactions.index')->with('success', "Transaction successfully added");
+        return redirect()->route('transactions.show', $transaction->id)->with('success', "Transaction successfully added");
     }
 
     /**

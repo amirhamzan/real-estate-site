@@ -5,6 +5,11 @@
         <div class="container-fluid py-4 px-5">
             <div class="row">
                 <div class="col-12 mb-4">
+                    @if(Session::has('success'))
+                    <div class="alert alert-success text-dark text-sm" role="alert">
+                        <strong>Success!</strong> {{Session::get('success')}}
+                    </div>
+                    @endif
                     <div class="card border shadow-xs h-100">
                         <div class="card-header pb-0 p-3">
                             <div class="row">
