@@ -16,7 +16,7 @@
                                 <div class="card-header pb-0 text-left bg-transparent text-center">
                                     <h3 class="font-weight-black text-dark display-6">Welcome back</h3>
                                     <p class="mb-0">Welcome back!</p>
-                                    <p class="mb-0">Create a new acount<br></p>
+                                    <!-- <p class="mb-0">Create a new acount<br></p> -->
                                     <p class="mb-0">OR Sign in with these credentials:</p>
                                     <p class="mb-0">Email: <b>superadmin@example.com</b></p>
                                     <p class="mb-0">Password: <b>secret</b></p>
@@ -64,22 +64,15 @@
                                         </div>
                                         <div class="text-center">
                                             <button type="submit" class="btn btn-dark w-100 mt-4 mb-3">Sign in</button>
-                                            <button type="button" class="btn btn-white btn-icon w-100 mb-3">
-                                                <span class="btn-inner--icon me-1">
-                                                    <img class="w-5" src="../assets/img/logos/google-logo.svg"
-                                                        alt="google-logo" />
-                                                </span>
-                                                <span class="btn-inner--text">Sign in with Google</span>
-                                            </button>
                                         </div>
                                     </form>
                                 </div>
-                                <div class="card-footer text-center pt-0 px-lg-2 px-1">
+                                <!-- <div class="card-footer text-center pt-0 px-lg-2 px-1">
                                     <p class="mb-4 text-xs mx-auto">
                                         Don't have an account?
                                         <a href="{{ route('sign-up') }}" class="text-dark font-weight-bold">Sign up</a>
                                     </p>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -90,8 +83,7 @@
                                         class="blur mt-12 p-4 text-center border border-white border-radius-md position-absolute fixed-bottom m-4">
                                         <h2 class="mt-3 text-dark font-weight-bold">Enter our global community of
                                             developers.</h2>
-                                        <h6 class="text-dark text-sm mt-5">Copyright © 2022 Corporate UI Design System
-                                            by Creative Tim.</h6>
+                                        <h6 class="text-dark text-sm mt-5">Copyright © 2024</h6>
                                     </div>
                                 </div>
                             </div>
