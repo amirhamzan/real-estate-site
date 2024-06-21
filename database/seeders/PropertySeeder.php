@@ -5,6 +5,8 @@ namespace Database\Seeders;
 use App\Models\Property;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Faker\Factory as Faker;
+use Illuminate\Support\Facades\DB;
 
 class PropertySeeder extends Seeder
 {
@@ -50,5 +52,21 @@ class PropertySeeder extends Seeder
         ];
 
         Property::insert($properties);
+
+        // Dummy faker properties
+        $faker = Faker::create();
+
+        for ($i = 0; $i < 50; $i++) { // Adjust the range as needed
+            DB::table('properties')->insert([
+                'name' => $faker->company . ' Property',
+                'address' => $faker->address,
+                'property_type_id' => $faker->numberBetween(1, 3),
+                'floor_area' => $faker->numberBetween(50, 500), // Assuming floor area in square meters
+                'land_area' => $faker->numberBetween(100, 1000), // Assuming land area in square meters
+                'price' => $faker->numberBetween(100000, 1000000), // Assuming price in dollars
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+        }
     }
 }

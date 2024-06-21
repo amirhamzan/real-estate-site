@@ -33,6 +33,13 @@ class DatabaseSeeder extends Seeder
             'about' => "Hi, I am Aliza.",
         ]);
 
+        User::factory()->create([
+            'name' => 'Harry',
+            'email' => 'harry@example.com',
+            'password' => Hash::make('secret'),
+            'about' => "Hi, I am Harry.",
+        ]);
+
         $this->call([
             PropertyTypeSeeder::class,
             PropertySeeder::class,
