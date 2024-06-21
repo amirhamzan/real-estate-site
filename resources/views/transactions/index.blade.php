@@ -13,6 +13,11 @@
                     </div>
                 </div>
             </div>
+            @if(Session::has('success'))
+            <div class="alert alert-success text-dark text-sm" role="alert">
+                <strong>Success!</strong> {{Session::get('success')}}
+            </div>
+            @endif
             <div class="row">
                 <div class="col-12">
                     <div class="card border shadow-xs mb-4">
@@ -37,63 +42,65 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card-body px-0 py-0">
+                        <div class="table-responsive p-0">
 
-                            <div class="table-responsive p-0">
-                                <table class="table align-items-center mb-0">
-                                    <thead class="bg-gray-100">
-                                        <tr>
-                                            <th class="text-secondary text-xs font-weight-semibold opacity-7">Property</th>
-                                            <th class="text-secondary text-center text-xs font-weight-semibold opacity-7 ps-2">
-                                                Request Price ($)</th>
-                                            <th class="text-center text-secondary text-xs font-weight-semibold opacity-7">
-                                                Sale/Lease Price ($)</th>
-                                            <th class="text-center text-secondary text-xs font-weight-semibold opacity-7">
-                                                Date Issued</th>
-                                            <th class="text-secondary opacity-7"></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @forelse ($transactions as $transaction)
-                                        <tr>
-                                            <td>
-                                                <div class="d-flex px-2 py-1">
-                                                    <div class="d-flex flex-column justify-content-center ms-1">
-                                                        <h6 class="mb-0 text-secondary text-sm font-weight-normal">
-                                                            <a href="{{ route('properties.show', $transaction->property->id) }}" target="_blank" style="text-decoration: underline;">
-                                                                {{ $transaction->property->name }}
-                                                            </a>
-                                                        </h6>
+                            <div class="card-body px-0 py-0">
+
+                                <div class="table-responsive p-0">
+                                    <table class="table align-items-center mb-0">
+                                        <thead class="bg-gray-100">
+                                            <tr>
+                                                <th class="text-secondary text-xs font-weight-semibold opacity-7">Property</th>
+                                                <th class="text-secondary text-center text-xs font-weight-semibold opacity-7 ps-2">
+                                                    Request Price ($)</th>
+                                                <th class="text-center text-secondary text-xs font-weight-semibold opacity-7">
+                                                    Sale/Lease Price ($)</th>
+                                                <th class="text-center text-secondary text-xs font-weight-semibold opacity-7">
+                                                    Date Issued</th>
+                                                <th class="text-secondary opacity-7"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @forelse ($transactions as $transaction)
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex px-2 py-1">
+                                                        <div class="d-flex flex-column justify-content-center ms-1">
+                                                            <h6 class="mb-0 text-secondary text-sm font-weight-normal">
+                                                                <a href="{{ route('properties.show', $transaction->property->id) }}" target="_blank" style="text-decoration: underline;">
+                                                                    {{ $transaction->property->name }}
+                                                                </a>
+                                                            </h6>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-sm font-weight-normal">{{ number_format( $transaction->property->price, 2, '.', ',') }}</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-success text-lg font-weight-bolder">{{ number_format( $transaction->price, 2, '.', ',') }}</span>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <span class="text-secondary text-sm font-weight-normal">{{ $transaction->created_at }}</span>
-                                            </td>
-                                            <td class="align-middle">
-                                                <a href="{{ route('transactions.show', $transaction->id) }}" class="text-secondary font-weight-bold text-xs" data-bs-toggle="tooltip" data-bs-title="Show details">
-                                                    <i class="fa-regular fa-eye" aria-hidden="true"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        @empty
-                                        @endforelse
-                                    </tbody>
-                                </table>
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    <span class="text-secondary text-sm font-weight-normal">{{ number_format( $transaction->property->price, 2, '.', ',') }}</span>
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    <span class="text-success text-lg font-weight-bolder">{{ number_format( $transaction->price, 2, '.', ',') }}</span>
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    <span class="text-secondary text-sm font-weight-normal">{{ $transaction->created_at }}</span>
+                                                </td>
+                                                <td class="align-middle">
+                                                    <a href="{{ route('transactions.show', $transaction->id) }}" class="text-secondary font-weight-bold text-xs" data-bs-toggle="tooltip" data-bs-title="Show details">
+                                                        <i class="fa-regular fa-eye" aria-hidden="true"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                            @empty
+                                            @endforelse
+                                        </tbody>
+                                    </table>
+                                </div>
+                                {{ $transactions->links() }}
                             </div>
-                            {{ $transactions->links() }}
                         </div>
                     </div>
                 </div>
+                <x-app.footer />
             </div>
-            <x-app.footer />
-        </div>
     </main>
 
 </x-app-layout>
