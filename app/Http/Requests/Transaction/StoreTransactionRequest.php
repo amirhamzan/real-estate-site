@@ -33,7 +33,39 @@ class StoreTransactionRequest extends FormRequest
                     }
                 },
             ],
-            'commissions' => 'required|array',
+            'commissions' => [
+                'required',
+                'array',
+                function ($attribute, $value, $fail) {
+                    $totalCommission = array_sum($value);
+                    if ($totalCommission > 100) {
+                        $fail('The total commission percentage cannot exceed 100%.');
+                    }
+                    foreach ($value as $commission) {
+                        if ($commission > 100) {
+                            $fail('Each commission percentage cannot exceed 100%.');
+                        }
+                        if ($commission < 0.01) {
+                            $fail('Each commission percentage must be at least 0.01%.');
+                        }
+                    }
+                },
+            ],
+            'commissions.*' => 'numeric|min:0.01|max:100',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'property_id.required' => 'The property field is required.',
+            'property_id.exists' => 'The selected property is invalid.',
+            'price.required' => 'The price field is required.',
+            'commissions.required' => 'The commissions field is required.',
+            'commissions.array' => 'The commissions field must be an array.',
+            'commissions.*.numeric' => 'Each commission must be a number.',
+            'commissions.*.min' => 'Each commission must be at least 0.01%.',
+            'commissions.*.max' => 'Each commission must not exceed 100%.',
         ];
     }
 }

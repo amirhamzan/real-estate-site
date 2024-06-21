@@ -90,6 +90,11 @@
                                                 </td>
                                             </tr>
                                             @empty
+                                            <tr>
+                                                <td colspan="10" class="align-middle text-center">
+                                                    <span class="text-secondary text-sm font-weight-normal">No Data</span>
+                                                </td>
+                                            </tr>
                                             @endforelse
                                         </tbody>
                                     </table>
