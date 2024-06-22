@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\AuthLogController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\TransactionUserController;
@@ -113,5 +114,9 @@ Route::middleware(['auth',])->group(function () {
         Route::controller(TransactionUserController::class)->group(function () {
             Route::get('/download-report/{transaction_user}', 'downloadReport')->name('transaction.users.download.report');
         });
+    });
+
+    Route::middleware(['role:super-admin'])->group(function () {
+        Route::get('/auth-logs', [AuthLogController::class, 'index'])->name('auth.logs.index');
     });
 });
