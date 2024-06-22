@@ -39,7 +39,7 @@
                             <div class="card-body px-0 py-0">
 
                                 <div class="table-responsive p-0">
-                                    <table class="table align-items-center mb-0">
+                                    <table class="table table-hover align-items-center mb-0">
                                         <thead class="bg-gray-100">
                                             <tr>
                                                 <th class="text-secondary text-xs font-weight-semibold opacity-7">ID</th>
@@ -49,6 +49,8 @@
                                                     IP</th>
                                                 <th class="text-center text-secondary text-xs font-weight-semibold opacity-7">
                                                     Agent</th>
+                                                <th class="text-center text-secondary text-xs font-weight-semibold opacity-7">
+                                                    Created At</th>
                                                 <th class="text-secondary opacity-7">Action</th>
                                             </tr>
                                         </thead>
@@ -65,17 +67,20 @@
                                                     </div>
                                                 </td>
                                                 <td class="align-middle text-center">
-                                                    <span class="text-secondary text-sm font-weight-normal">{{ $auth_log->user->name }}</span>
+                                                    <span class="text-success text-lg font-weight-bolder">{{ $auth_log->user->name }}</span>
                                                 </td>
                                                 <td class="align-middle text-center">
-                                                    <span class="text-success text-lg font-weight-bolder">{{ $auth_log->ip_address }}</span>
+                                                    <span class="text-secondary text-sm font-weight-normal">{{ $auth_log->ip_address }}</span>
                                                 </td>
                                                 <td class="align-middle text-center">
                                                     <span class="text-secondary text-sm font-weight-normal">{{ $auth_log->user_agent }}</span>
                                                 </td>
+                                                <td class="align-middle text-center">
+                                                    <span class="text-secondary text-sm font-weight-normal">{{ $auth_log->created_at }}</span>
+                                                </td>
                                                 <td class="align-middle">
                                                     @php
-                                                    if($auth_log->action = 1) {
+                                                    if($auth_log->action == 1) {
                                                     $badge_style = 'border-success text-success bg-success';
                                                     $badge_text = 'Login';
                                                     } else {
