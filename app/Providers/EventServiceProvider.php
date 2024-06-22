@@ -8,6 +8,8 @@ use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvi
 use Illuminate\Support\Facades\Event;
 use Illuminate\Auth\Events\Login;
 use App\Listeners\LogUserLogin;
+use Illuminate\Auth\Events\Logout;
+use App\Listeners\LogUserLogout;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -22,6 +24,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         Login::class => [
             LogUserLogin::class,
+        ],
+        Logout::class => [
+            LogUserLogout::class,
         ],
     ];
 
