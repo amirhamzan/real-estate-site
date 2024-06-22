@@ -15,4 +15,9 @@ class AuthLog extends Model
         'user_agent',
         'action',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
